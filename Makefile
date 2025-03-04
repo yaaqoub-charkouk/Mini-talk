@@ -29,11 +29,11 @@ client_bonus: $(C_B_OBJ) $(U_OBJ)
 server_bonus: $(S_B_OBJ) $(U_OBJ)
 	$(CC) $(CFLAGS) $^ -o $@
 
-bonus/%.o: bonus/%.c mini_talk_bonus.h
+bonus/%.o: bonus/%.c bonus/mini_talk_bonus.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(C_OBJ) $(S_OBJ) $(U_OBJ) $(C_B_OBJ) $(U_OBJ)
+	rm -f $(C_OBJ) $(S_OBJ) $(U_OBJ) $(C_B_OBJ) $(S_B_OBJ) $(U_OBJ)
 
 fclean: clean
 	rm -rf client server client_bonus server_bonus
