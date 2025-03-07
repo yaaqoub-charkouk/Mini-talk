@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 08:10:05 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/03/05 09:01:08 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:35:59 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 		current_char = 0;
 		seq = 0;
 	}
-	// client_pid = info->si_pid;
 	current_char = (current_char << 1) | (signal == SIGUSR2);
 	seq++;
 	if (seq == 8)
@@ -34,10 +33,7 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 		if (current_char == '\0')
 		{
 			write(1, "\n", 1);
-			current_char = 0;
-			seq = 0;
 			kill(client_pid, SIGUSR1);
-			return ;
 		}
 		seq = 0;
 		current_char = 0;
@@ -48,7 +44,7 @@ int	main(void)
 {
 	struct sigaction	action;
 
-	ft_printf("The Server pid:\t%d\n", getpid());
+	ft_printf("Bonus: The Server pid:\t%d\n", getpid());
 	action.sa_sigaction = signal_handler;
 	action.sa_flags = SA_SIGINFO;
 	sigemptyset(&action.sa_mask);

@@ -6,20 +6,17 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 08:11:13 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/03/05 08:45:57 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:13:15 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_talk.h"
-
-// static int	g_ack_received = 0;
 
 void	ack_handler(int signal)
 {
 	if (signal == SIGUSR1)
 	{
 		ft_printf("Acknowledgment received, exiting...\n");
-		// g_ack_received = 1;
 		exit(EXIT_SUCCESS);
 	}
 }
@@ -35,7 +32,7 @@ void	char_to_signals(int pid, char c)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(200);
+		usleep(300);
 		window--;
 	}
 }
