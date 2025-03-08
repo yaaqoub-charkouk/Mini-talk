@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 08:11:13 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/03/07 07:38:07 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/03/08 07:08:33 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	msj_to_signals(int pid, char *msj)
 		seq++;
 	}
 	if (msj[seq] == '\0')
-		char_to_signals(pid, '\0');	
+		char_to_signals(pid, '\0');
 }
 
 int	main(int ac, char **av)
