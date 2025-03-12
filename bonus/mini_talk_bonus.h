@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 10:32:45 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/03/04 11:07:32 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/03/11 07:04:39 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <signal.h>
 # include <limits.h>
-
-# include "utils/ft_printf.h"
+# include "../utils/utils.h"
 
 #endif

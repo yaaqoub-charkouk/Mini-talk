@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 08:11:13 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/03/08 07:15:24 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/03/10 11:25:20 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	char_to_signals(int pid, char c)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(300);
+		usleep(500);
 		window--;
 	}
 }
@@ -58,11 +58,12 @@ int	main(int ac, char **av)
 	if (ac == 3)
 	{
 		pid = ft_atoi(av[1]);
-		if (pid == -1)
+		if (pid < 0 || kill(pid, 0) == -1)
 			return (1);
 		signal(SIGUSR1, ack_handler);
 		msj_to_signals(pid, av[2]);
-		return (ft_printf("Timeout: Acknowledgment not received .\n"), 1);
+		while (1337)
+			pause();
 	}
 	else
 		return (ft_printf("Usage: <./client> <server_pid> <msj>"), 1);
