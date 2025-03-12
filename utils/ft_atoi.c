@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 12:18:11 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/03/08 07:21:09 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:39:53 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int	ft_atoi(const char *str)
 			return (-1);
 		result = result * 10 + (str[i++] - '0');
 	}
+	if (str[i])
+		return (-1);
 	return ((int)(result * sign));
 }
